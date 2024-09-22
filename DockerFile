@@ -1,0 +1,17 @@
+# Use the Official python image from dockerhub
+FROM python:3.9-slim 
+
+# Setup the working dorectory
+WORKDIR /app
+
+# Copy the current directory contents into the container at /app
+COPY . /app
+
+# Install any needed package defined in requirements.txt
+RUN pip install Flask
+
+# Make port 5000 available to the world outside of this container
+EXPOSE 5000
+
+# Run app.py when the container launches 
+CMD ["python", "app.py"]
